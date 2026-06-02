@@ -366,8 +366,11 @@ class EnemyTank(Tank):
         actual_rot = max(-max_rot, min(max_rot, diff_chassis))
         self.angle += actual_rot
         
-        # IA também sofre força centrífuga
-        self.target_roll = -6.0 * (actual_rot / (AI_ROT_SPEED * dt))
+        # IA também sofre força centrífuga (com proteção contra divisão por zero)
+        if max_rot > 0.0:
+            self.target_roll = -6.0 * (actual_rot / max_rot)
+        else:
+            self.target_roll = 0.0
 
         speed_mult = 1.5 if self.nitro_timer > 0 else 1.0
         current_speed = AI_MOVE_SPEED * speed_mult

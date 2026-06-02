@@ -48,7 +48,7 @@ POWER_UPS = [
 ]
 
 # ── Tanque ──────────────────────────────────────────────────────────────
-TANK_SPEED        = 10.0
+TANK_SPEED        = 12.0
 TANK_ROT_SPEED    = 100.0
 TURRET_ROT_SPEED  = 120.0
 TANK_HEALTH       = 100
